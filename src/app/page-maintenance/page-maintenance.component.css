@@ -1,0 +1,16 @@
+.container{
+    width: 90%;
+    margin: 5% auto;
+}
+.image img{
+    width: 75%;
+    height: 70vh;
+}
+h1 {
+    color: #d9534f;
+}
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
