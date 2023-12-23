@@ -40,7 +40,7 @@ export class AuthComponent implements OnInit {
     if(this.tabAdmin.length){
       this.idlastAdmin=this.tabAdmin[this.tabAdmin.length-1].idAdmin
     }
-    console.log(this.tabAdmin[0].profs[0].role)
+    
   }
   constructor(private route: Router) {}
 

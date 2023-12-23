@@ -101,7 +101,7 @@ switchListe(){
    this.semestre='';
    this.date=''; 
    this.classe='';
-   this.note = ''; 
+   this.note = ''  
  }
 
  // methode pour ajouter notes

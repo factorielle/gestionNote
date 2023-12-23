@@ -2,6 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthComponent } from './auth.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+
+
+class ActivatedRouteStub {
+  // Utilisez of() pour émettre une valeur mockée lors de l'appel à snapshot.paramMap
+  snapshot = { paramMap: { get: (key: string) => 'mocked-param' } };
+}
+
 
 
 describe('AuthComponent', () => {
@@ -11,8 +20,11 @@ describe('AuthComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [AuthComponent],
-      imports: [RouterTestingModule],
-      providers: [ActivatedRoute], 
+      imports: [RouterTestingModule, FormsModule],
+      providers: [
+        { provide: ActivatedRoute, useClass: ActivatedRouteStub },
+        { provide:Storage, useValue: {} } ,
+      ], 
     });
 
     fixture = TestBed.createComponent(AuthComponent);
@@ -25,13 +37,12 @@ describe('AuthComponent', () => {
   });
 
   it('should toggle the form', () => {
-    expect(component.formChoice).toBeTrue(); // Initially, the formChoice should be true
+    expect(component.formChoice).toBeTrue();
     component.showForm();
-    expect(component.formChoice).toBeFalse(); // After calling showForm, it should be false
-  });
+    expect(component.formChoice).toBeFalse();   });
 
 
 
-  // Add more test cases for other methods and scenarios...
+  
 
 });
